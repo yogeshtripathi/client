@@ -4,7 +4,7 @@ FROM golang:1.9
 USER nobody
 RUN mkdir -p /go/src/client
 WORKDIR /go/src/client
-COPY . /go/src/client`
+COPY . /go/src/client
 RUN go-wrapper download && go-wrapper install
 CMD ["main"]
 ENV PORT 9090
