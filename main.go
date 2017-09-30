@@ -37,7 +37,7 @@ func main() {
 			log.Fatal("ListenAndServe: ", err)
 		}
 	*/
-	http.Handle("/", http.FileServer(http.Dir("./")))
+	http.Handle("/", http.FileServer(http.Dir("/data")))
 	http.ListenAndServe(":9090", nil)
 
 }
