@@ -30,10 +30,14 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", sayhelloName)       // set router
-	err := http.ListenAndServe(":9090", nil) // set listen port
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
+	/*
+		http.HandleFunc("/", sayhelloName)       // set router
+		err := http.ListenAndServe(":9090", nil) // set listen port
+		if err != nil {
+			log.Fatal("ListenAndServe: ", err)
+		}
+	*/
+	http.Handle("/", http.FileServer(http.Dir("./")))
+	http.ListenAndServe(":9090", nil)
 
 }
